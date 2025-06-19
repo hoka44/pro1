@@ -1,267 +1,111 @@
-*{
+* {
+    box-sizing: border-box;
+}
+
+body {
     margin: 0;
     padding: 0;
-}
-
-.main{
-    width: 100%;
-    background: linear-gradient(to top, rgb(125, 160, 241)50%,rgb(125, 160, 241)50%);
-    background-position: center;
-    background-size: cover;
-    height: 100vh;
-}
-
-.navbar{
-    width: 1200px;
-    height: 75px;
-    margin: auto;
-}
-
-.icon{
-    width: 200px;
-    float: left;
-    height: 70px;
-}
-
-.logo{
-    color: rgba(51, 63, 231, 0.496);
-    font-size: 40px;
-    font-family: Arial;
-    padding-left: 20px;
-    float: left;
-    padding-top: 10px;
-    margin-top: 5px
-}
-
-.menu{
-    width: 400px;
-    float: left;
-    height: 70px;
-}
-
-ul{
-    float: left;
+    background-color: rgb(81, 70, 180);
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
 
-ul li{
-    list-style: none;
-    margin-left: 62px;
-    margin-top: 27px;
-    font-size: 14px;
-}
-
-ul li a{
-    text-decoration: none;
-    color: #1717f5;
-    font-family: Arial;
-    font-weight: bold;
-    transition: 0.4s ease-in-out;
-}
-
-ul li a:hover{
-    color: #125794;
-}
-
-.search{
-    width: 330px;
-    float: left;
-    margin-left: 270px;
-}
-
-.srch{
-    font-family: 'Times New Roman';
-    width: 200px;
-    height: 40px;
-    background: transparent;
-    border: 1px solid #6656bf;
-    margin-top: 13px;
-    color: #1040b7;
-    border-right: none;
-    font-size: 16px;
-    float: left;
-    padding: 10px;
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-}
-
-.btn{
-    width: 100px;
-    height: 40px;
-    background: #475ee37b;
-    border: 2px solid#6656bf ;
-    margin-top: 13px;
-    color: #fff;
-    font-size: 15px;
-    border-bottom-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    transition: 0.2s ease;
-    cursor: pointer;
-}
-.btn:hover{
-    color: #db3737;
-}
-
-.btn:focus{
-    outline: none;
-}
-
-.srch:focus{
-    outline: none;
-}
-
-.content{
-    width: 1200px;
-    height: auto;
-    margin: auto;
-    color: #175de8;
-    position:relative;
-}
-
-.content .par{
-    padding-left: 20px;
-    padding-bottom: 25px;
-    font-family: Arial;
-    letter-spacing: 1.2px;
-    line-height: 30px;
-}
-
-.content h1{
-    font-family: 'Times New Roman';
-    font-size: 60px;
-    padding-left: 20px;
-    margin-top: 9%;
-    letter-spacing: 2px;
-
-}
-.content p{
-    color: rgba(49, 67, 186, 0.771);
-    font-size:large;
-
-}
-
-.content .cn{
-    width: 160px;
-    height: 40px;
-    background: #5081ea;
-    border: none;
-    margin-bottom: 10px;
-    margin-left: 20px;
-    font-size: 18px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: .4s ease;
-    
-}
-
-.content .cn a{
-    text-decoration: none;
-    color: #f4f9f3;
-    transition: .3s ease;
-}
-
-
-.form{
-    width: 400px;
-    height: 390px;
-    background: linear-gradient(to top, rgba(3, 8, 101, 0.652)50%,rgba(3, 8, 101, 0.652)50%);
-    position: absolute;
-    top: -20px;
-    left: 860px;
-    transform: translate(0%,-5%);
-    border-radius: 10px;
-    padding: 25px;
-}
-
-.form h2{
-    width: 380px;
-    font-family: sans-serif;
+h1 {
     text-align: center;
-    color: #5ea8e5;
-    font-size: 32px;
-    background-color: #fff;
-    border-radius: 10px;
-    margin: 2px;
-    padding: 8px;
-}
-
-.form input{
-    width: 400px;
-    height: 38px;
-    background: transparent;
-    border-bottom: 1px solid #7079df;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    color: #7385c5;
-    font-size: 15px;
-    letter-spacing: 1px;
-    margin-top: 30px;
-    font-family: sans-serif;
-}
-
-.form input:focus{
-    outline: none;
-}
-
-::placeholder{
-    color: #529feb;
-    font-family: Arial;
-}
-
-.btnn{
-    width: 390px;
-    height: 40px;
-    background: #8499da;
-    border: none;
-    margin-top: 30px;
-    font-size: 19px;
-    border-radius: 10px;
-    cursor: pointer;
-    color: #fff;
-    transition: 0.4s ease;
-}
-.btnn:hover{
-    background: #fff;
-    color: #45ac26;
-}
-.btnn a{
-    text-decoration: none;
-    color: #5d57df;
-    font-weight: bold;
-}
-.form .link{
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    padding-top: 30px;
-    color: #529feb;
-    text-align: center;
+    color: #7784e5;
+    word-spacing: 5px;
+    font-size: 40px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
 
+p,
+h1 {
+    direction: rtl;
+    font-weight: bold;
 }
-.form .link a{
-    text-decoration: none;
-    color: #a4c1f8;
+
+p {
+    font-size: 25px;
 }
-.form .liw{
-    padding-top: 15px;
-    padding-bottom: 10px;
-    color: #a4c1f8;
-    text-align: center;
+
+.container {
+    background: #6246dd;
+    border-radius: 18px;
+    box-shadow: 0 5px 10px 6px rgba(166, 97, 236, 0.31);
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    width: 90vw;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    padding: 40px 30px 60px 30px;
 }
-.icons a{
-    text-decoration: none;
+
+.container img {
+    width: 400px;
+    height: 370px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.container p {
+    font-size: 25px;
+    font-weight: bold;
+    direction: rtl;
+    text-align: right;
+    color: #000000;
+    margin: 0;
+    max-width: 500px;
+}
+
+#fireworksBtn {
+    background-color: #874cd9;
+    display: block;
+    margin: 40px auto 0 auto;
+    padding: 13px 38px;
+    font-size: 22px;
     color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
 }
-.icons ion-icon{
-    color: #fff;
-    font-size: 30px;
-    padding-left: 14px;
-    padding-top: 5px;
-    transition: 0.3s ease;
+
+#fireworksCanvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 1;
+    pointer-events: none;
 }
-.icons ion-icon:hover{
-    color: #6481e1;
-    
+
+/* Responsive for small screens */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 25px 10px;
+    }
+    .container img {
+        width: 90vw;
+        max-width: 320px;
+        height: auto;
+    }
+    .container p {
+        max-width: 95vw;
+        font-size: 20px;
+    }
+    h1 {
+        font-size: 30px;
+    }
 }
+

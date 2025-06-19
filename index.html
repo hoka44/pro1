@@ -1,70 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Webpage Design</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عيد سعيد</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+   <canvas id="fireworksCanvas"></canvas> 
+   <h1>عيد أضحي مبارك </h1>
+   <div class="container" id="mainContainer">
+      <img src="Eid.jpg" alt="عيدسعيد">
+      <p>
+        عيد الأضحى المبارك هو مناسبة دينية عظيمة يحتفل بها المسلمون في كل أنحاء العالم.<br>
+        يأتي هذا العيد تخليدًا لقصة سيدنا إبراهيم عليه السلام وطاعته لأمر الله.<br>
+        في هذا اليوم، تُذبح الأضاحي وتُوزّع اللحوم على الفقراء والمحتاجين، في مشهد من الرحمة والتكافل.<br>
+        كما يتبادل الناس التهاني والزيارات، وينتشر الفرح في كل بيت وشارع.<br>
+        كل عام وأنتم بخير، أعاده الله علينا وعليكم باليُمن والبركات. 🌙✨
+      </p>
+   </div>
+   <button id="fireworksBtn">لنتحتفل</button>
+   <script>
+const container = document.getElementById('mainContainer');
+const canvas = document.getElementById('fireworksCanvas');
+const ctx = canvas.getContext('2d');
 
-    <div class="main">
-        <div class="navbar">
-            <div class="icon">
-                <h2 class="logo">Hokado</h2>
-            </div>
+function resizeCanvasToWindow() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvasToWindow();
+window.addEventListener('resize', resizeCanvasToWindow);
 
-            <div class="menu">
-                <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">ABOUT</a></li>
-                    <li><a href="#">SERVICE</a></li>
-                    <li><a href="#">DESIGN</a></li>
-                    <li><a href="#">CONTACT</a></li>
-                </ul>
-            </div>
+class Particle {
+  constructor(x, y, color) {
+    this.x = x;
+    this.y = y;
+    this.color = color;
+    this.radius = Math.random() * 6 + 5; 
+    this.speed = Math.random() * 6 + 1.5; 
+    this.angle = Math.random() * 2 * Math.PI;
+    this.vx = Math.cos(this.angle) * this.speed;
+    this.vy = Math.sin(this.angle) * this.speed;
+    this.alpha = 0.7;
+    this.decay = 0.003 + Math.random() * 0.003; 
+  }
+  update() {
+    this.x += this.vx;
+    this.y += this.vy;
+    this.alpha -= this.decay;
+  }
+  draw() {
+    ctx.save();
+    ctx.globalAlpha = this.alpha;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+    ctx.fillStyle = this.color;
+    ctx.fill();
+    ctx.restore();
+  }
+}
 
-            <div class="search">
-                <input class="srch" type="search" name="" placeholder="Type To text">
-                <a href="#"> <button class="btn">Search</button></a>
-            </div>
+function randomColor() {
+  
+  const colors = [
+    'rgba(255, 222, 233, 0.7)', 
+    'rgba(100, 230, 255, 0.7)', 
+    'rgba(220, 255, 220, 0.7)', 
+    'rgba(255, 255, 200, 0.7)', 
+    'rgba(240, 240, 255, 0.7)',  
+    'rgba(255, 245, 230, 0.7)'  
+  ];
+  return colors[Math.floor(Math.random() * colors.length)];
+}
 
-        </div> 
-        <div class="content">
-            <h1>Front-End Developer&<br>UI/UX Designer </h1><br>
-            <p>
-                Hi, I'm [Hoda]Front-end Developer & UX/UI Designer <br>
+let particles = [];
 
-I specialize in building beautiful, responsive, and user-friendly websites using modern technologies like<br> HTML, CSS, JavaScript, and React. With a strong eye for design and a passion for clean code,<br> I love bringing ideas to life in the browser. Whether it's a landing page, a full web app, or a creative animation,<br> I aim to create digital experiences that are both functional and visually engaging.<br>
+function createFirework(x, y) {
+  const count = 20; 
+  for (let i = 0; i < count; i++) {
+    particles.push(new Particle(x, y, randomColor()));
+  }
+}
 
-Currently exploring UI/UX design and always learning new tools to level up my skills.<br> Let’s build something great togeth.
+function createMultipleFireworks() {
+  const fireworksCount = 5;
+  for (let i = 0; i < fireworksCount; i++) {
+    const x = Math.random() * canvas.width;
+    const y = Math.random() * canvas.height / 2 + canvas.height / 4;
+    createFirework(x, y);
+  }
+}
 
-</p>
-   
-<br>
-               <br> <button class="cn"><a href="#">JOIN US</a></button>
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (let i = particles.length - 1; i >= 0; i--) {
+    const p = particles[i];
+    p.update();
+    if (p.alpha <= 0) {
+      particles.splice(i, 1);
+      continue;
+    }
+    p.draw();
+  }
+  requestAnimationFrame(animate);
+}
 
-                <div class="form">
-                   
-                    <input type="email" name="email" placeholder="Enter Email Here">
-                    <input type="password" name="" placeholder="Enter Password Here">
-                    <button class="btnn"><a href="#">Login</a></button>
+animate();
 
-                    <p class="link">Don't have an account<br>
-                    <a href="#">Sign up </a> here</a></p>
-                    <p class="liw">Log in with</p>
-
-                    <div class="icons">
-                        <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-                        <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
-                        <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
-                        <a href="#"><ion-icon name="logo-google"></ion-icon></a>
-                        <a href="#"><ion-icon name="logo-skype"></ion-icon></a>
-                    </div>
-
-                </div>
-                    </div>
-                </div>
-        </div>
-    </div>
-    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+document.getElementById('fireworksBtn').addEventListener('click', () => {
+  createMultipleFireworks();
+});
+   </script>
 </body>
 </html>
